@@ -5,6 +5,8 @@
  */
 package br.com.satc.personagens;
 
+import java.util.Random;
+
 /**
  *
  * @author Markson
@@ -406,5 +408,24 @@ public abstract class Personagem implements IPersonagem {
     public void setVelocidadeAtaque(int velocidadeAtaque) {
         this.velocidadeAtaque = velocidadeAtaque;
     }
-
+    public boolean bloquear(Personagem bloqueador,Personagem atacante) {
+        Boolean bloqueado=null;
+        int rand = ((bloqueador.getSorte()+bloqueador.getAgilidade())-(atacante.getSorte()+atacante.getAgilidade()));
+        
+        Random gerador = new Random();
+ 
+        int numero = gerador.nextInt(100);
+ 
+        if (numero>rand) {
+           bloqueado=false;
+        }else{
+            if(numero<=rand){
+           bloqueado=true;
+            }
+        }
+        return bloqueado;
+    }
+    public void ReceberDano(int dano){
+    this.hp-=dano;
+    }
 }
