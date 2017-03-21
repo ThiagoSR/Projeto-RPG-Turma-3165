@@ -46,6 +46,16 @@ public abstract class Equipamento {
         this.defesaMagica = defesaMagica;
     }
 
+    public Equipamento(int defesa, int defesaMagica, int peso, String descricao, String nome, int valorVenda, int valorCompra) {
+        this.setDefesa(defesa);
+        this.setDefesaMagica(defesaMagica);
+        this.setPeso(peso);
+        this.setDescricao(descricao);
+        this.setNome(nome);
+        this.setValorCompra(valorCompra);
+        this.setValorVenda(valorVenda);
+    }
+
     /**
      * @return the peso
      */

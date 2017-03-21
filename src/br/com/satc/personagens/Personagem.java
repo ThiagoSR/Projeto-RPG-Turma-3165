@@ -187,9 +187,26 @@ public abstract class Personagem implements IPersonagem {
      * @param hp the hp to set
      */
     public void setHp(int vitalidade) {
-        this.hp = vitalidade * getMultiHP();
+        this.hp += vitalidade * getMultiHP();
     }
-
+    public void setHPInicial(int VidaIClasse) {
+        this.hp=VidaIClasse;
+    }
+    public int getHpInicial() {
+        return hp;
+    }
+    public void setSpInicial(int ManaIClasse) {
+        this.sp=ManaIClasse;
+    }
+     public int getSpInicial() {
+        return sp;
+    }
+    public void setHPAtualiza() {
+        this.hp=this.getHp()-(this.getHp()-((this.getHpInicial()+(vitalidade*15))));
+                }
+    public void setSPAtualiza() {
+        this.sp=this.getSp()-(this.getSp()-((this.getSpInicial()+(inteligencia*10))));
+                }
     /**
      * @return the sp
      */
@@ -322,6 +339,13 @@ public abstract class Personagem implements IPersonagem {
     public int getPrecisao() {
         return precisao;
     }
+    public void ReceberDano(int dano){
+    this.hp-=dano;
+    }
+    public void GastoSp(int mana){
+    this.sp-=mana;
+    }
+    
 
     /**
      * @param precisao the precisao to set
@@ -406,5 +430,7 @@ public abstract class Personagem implements IPersonagem {
     public void setVelocidadeAtaque(int velocidadeAtaque) {
         this.velocidadeAtaque = velocidadeAtaque;
     }
+
+    
 
 }
